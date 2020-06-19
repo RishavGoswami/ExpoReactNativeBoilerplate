@@ -1,6 +1,25 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+/*
+ * @Author: Rishav G
+ * @Date: 2020-06-19 18:12:14
+ * @Last Modified by: Rishav G
+ * @Last Modified time: 2020-06-19 18:12:34
+ **/
+// polyfills
+import "react-native-console-time-polyfill";
 
-export default function App() {
-  return <Text>Dashboard</Text>;
-}
+import React from "react";
+
+//  redux
+import { Provider } from "react-redux";
+
+// store
+import configureStore from "./src/redux/store";
+
+// routes
+import Routes from "./src/config/Routes";
+
+export default App = () => (
+  <Provider store={configureStore()}>
+    <Routes />
+  </Provider>
+);
