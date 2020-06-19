@@ -1,8 +1,8 @@
 /*
  * @Author: Rishav Goswami
  * @Date: 2020-05-04 02:44:41
- * @Last Modified by: Rishav
- * @Last Modified time: 2020-05-08 22:09:23
+ * @Last Modified by: Rishav G
+ * @Last Modified time: 2020-06-20 01:13:06
  */
 
 // redux
@@ -16,7 +16,6 @@ import monitorReducersEnhancer from "../enhancers/monitorReducer";
 // middlewares
 import loggerMiddleware from "../middleware/logger";
 import apiMiddleware from "../middleware/actions";
-import userTiming from "../middleware/userTiming";
 
 // reducer
 import rootReducer from "../reducers/index";
@@ -24,7 +23,6 @@ import rootReducer from "../reducers/index";
 export default configureStore = (preloadedState) => {
   const middlewares = [
     loggerMiddleware,
-    userTiming,
     apiMiddleware,
     thunkMiddleware,
   ];

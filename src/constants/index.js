@@ -9,7 +9,6 @@ export const logs = {
   action: { label: ACTION, color: "#FED000" },
   nextState: { label: NEXT_STATE, color: "#75DAAD" },
   executionTime: { label: EXECUTION_TIME, color: "#40bad5" },
-  userTiming: { label: USER_TIMING, color: "#40bad5" },
 };
 
 export const REDUX_STATE = "state";
