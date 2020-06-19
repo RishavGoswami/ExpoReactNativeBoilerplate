@@ -2,7 +2,7 @@
  * @Author: Rishav Goswami
  * @Date: 2020-05-08 22:07:23
  * @Last Modified by: Rishav G
- * @Last Modified time: 2020-06-19 17:55:12
+ * @Last Modified time: 2020-06-19 20:36:23
  */
 
 // third-party libraries
@@ -102,7 +102,7 @@ const apiMiddleware = ({ dispatch }) => (next) => (action) => {
     axios
       .request(requestPayload)
       .then(({ data }) => {
-        dispatch(apiSuccess(action.type, data));
+        dispatch(apiSuccess(action.type, data.results));
       })
       .catch((error) => {
         dispatch(apiError(action.type, error));

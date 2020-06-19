@@ -2,7 +2,7 @@
  * @Author: Rishav Goswami
  * @Date: 2020-05-04 02:42:38
  * @Last Modified by: Rishav G
- * @Last Modified time: 2020-06-19 20:22:52
+ * @Last Modified time: 2020-06-19 21:04:00
  */
 import React, { useEffect } from "react";
 import Constants from "expo-constants";
@@ -14,12 +14,20 @@ import { mapDispatchToProps, mapStateToProps } from "../../../redux/helper";
 // atoms
 import Header from "../../atoms/Header";
 import Button from "../../atoms/Button";
+import Images from "../../atoms/Image";
 
 // styles
-import { Container, ListWrap, ListText, FlatListComp } from "./styles";
+import {
+  Container,
+  ListWrap,
+  ListText,
+  FlatListComp,
+  ImageWrap,
+  Details,
+} from "./styles";
 
 // utils
-import { navigationTo } from "../../../utils";
+import { navigationTo, getDeviceWidth } from "../../../utils";
 
 const Dashboard = (props) => {
   const {
@@ -35,12 +43,22 @@ const Dashboard = (props) => {
   const handleOnPress = () => navigationTo(navigation, "profile");
 
   const renderItems = ({ item }) => {
-    const { name, website, email } = item;
+    const {
+      name: { title, first, last },
+      cell,
+      email,
+      picture: { thumbnail },
+    } = item;
     return (
       <ListWrap>
-        <ListText>Name: {name}</ListText>
-        <ListText>Website: {website}</ListText>
-        <ListText>Email: {email}</ListText>
+        <ImageWrap source={thumbnail} isUrl />
+        <Details>
+          <ListText>
+            Name: {title} {first} {last}
+          </ListText>
+          <ListText>Cell: {cell}</ListText>
+          <ListText>Email: {email}</ListText>
+        </Details>
       </ListWrap>
     );
   };
